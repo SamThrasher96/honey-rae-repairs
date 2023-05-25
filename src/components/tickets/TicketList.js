@@ -15,6 +15,9 @@ export const TicketList = () => {
                 const emergencyTickets = tickets.filter(ticket => ticket.emergency === true)
                 setFilteredTickets(emergencyTickets)
             }
+            else {
+                setFilteredTickets(tickets)
+            }
         },
         [emergency]
     )
@@ -37,22 +40,24 @@ export const TicketList = () => {
                 setFilteredTickets(tickets)
             }
             else {
-                const myTickets = tickets.filter(ticket => ticket.customerId === honeyUserObject.id)
+                const myTickets = tickets.filter(ticket => ticket.userId === honeyUserObject.id)
                 setFilteredTickets(myTickets)
             }
         },
 
         [ tickets ]
     )
-    
+
     return <>
-    <button
-        onClick={
-            () => {
-                setEmergency(true)
-            }
-        }
-    >Emergency Only</button>
+    {
+        honeyUserObject.staff
+        ? <>
+        <button onClick={ () => { setEmergency(true) } } >Emergency Only</button>
+        <button onClick={ () => { setEmergency(false) } } >Show all</button>
+        </>
+        : ""
+
+    }
     <h2>List of Tickets</h2>
 
         <article className = "tickets">
