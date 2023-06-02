@@ -30,7 +30,7 @@ export const TicketForm = () => {
         }
 
         // TODO: Perform the fetch() to POST the object to the API
-        return fetch(`http://localhost:8088/serviceTickets`, {
+        return fetch(`http://localhost:8089/serviceTickets`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
