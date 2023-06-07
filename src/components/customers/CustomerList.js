@@ -8,7 +8,7 @@ export const CustomerList = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8089/users?isStaff=false`)
+            fetch(`http://localhost:8089/customers?_expand=user&_embed=user=isStaff=false`)
                 .then(response => response.json())
                 .then((customerArray) => {
                         setCustomers(customerArray)
@@ -20,8 +20,10 @@ export const CustomerList = () => {
         {
             customers.map(customer => <Customer key={`customer-${customer.id}`}
                 id={customer.id} 
-                fullName={customer.fullName} 
-                email={customer.email}/>)
+                fullName={customer?.user?.fullName} 
+                address={customer.address}
+                phoneNumber={customer.phoneNumber}
+                />)
         }
     </article>
 }

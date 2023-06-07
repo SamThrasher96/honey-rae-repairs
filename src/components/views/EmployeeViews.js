@@ -1,9 +1,10 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { TicketContainer } from "../tickets/TicketContainer"
-import { EmployeeList } from "../employees/EmployeeList"
-import { EmployeeDetails } from "../employees/EmployeeDetails"
-import { CustomerList } from "../customers/CustomerList"
+import { TicketContainer } from "../tickets/TicketContainer.js"
+import { EmployeeList } from "../employees/EmployeeList.js"
+import { EmployeeDetails } from "../employees/EmployeeDetails.js"
+import { CustomerList } from "../customers/CustomerList.js"
 import { CustomerDetails } from "../customers/CustomerDetails.js"
+
 
 
 
